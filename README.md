@@ -17,7 +17,7 @@ Two fictional owners submit five jobs to one computer slot. The program prints t
 |---|---|---|
 | Public scheduling example | Rust, Cargo, standard-library queues, unit tests | Runnable here |
 | Shared client behavior | Rust screen-state labels, fallback dimensions and capacity rules | Initial rules ported and unit-tested in the private project |
-| Upstream parity baseline | Frozen SHA `2ff0934` inventory (72 routes, 12 events, 17 tools, 19 tables, desktop/phone viewports) | Completed in private repo |
+| Upstream parity baseline | Frozen SHA `2ff0934` inventory (72 routes, 12 events, 17 tools, 19 tables, desktop/phone viewports) | Source inventory prepared in private repo; rendered verification pending |
 | Server and persistence | Axum, Tokio, SQLx, SQLite, HTTP and server-sent events | Planned |
 | Clients | Dioxus, WebAssembly, system WebViews, shared CSS, Android and Xcode packaging | Planned |
 | Local computer runtime | Debian Linux, X11, VNC, Chromium, Hermes, MCP | Planned |
