@@ -23,8 +23,24 @@ Two fictional owners submit five jobs to one computer slot. The program prints t
 | Local computer runtime | Debian Linux, X11, VNC, Chromium, Hermes, MCP | Planned |
 | Future deployment | Tailscale, Cloudflare Access and Tunnel, encrypted usage-based object storage | Deferred |
 
-## What will be demonstrated next
+## Synthetic two-owner cache rehearsal
 
-The first client milestone compares the upstream and Rust profile workflows using synthetic data. Subsequent milestones will add reproducible screenshots, platform results and performance measurements as the implementation produces them. The scheduler here illustrates a design decision. The production scheduler, applications and operational configuration belong to the private implementation.
+The private Rust implementation was exercised with two fictional owners and five synthetic bots per owner against one loopback server. After two cold owner reads populated the cache, the test issued 200 concurrent warm reads. Both owners continued to receive only their own five bots.
+
+| Measurement | Debian 13 local run |
+|---|---:|
+| Synthetic bots / owners | 10 / 2 |
+| Concurrent warm reads | 200 |
+| Server requests across cold + warm reads | 2 |
+| Warm cache hit rate | 99% |
+| Warm read p95 | 54 μs |
+| Test process peak RSS | 23.4 MiB |
+| Total rehearsal time | 10 ms |
+
+These numbers describe one short local fixture run. The p95 measures in-process cached client reads, not a remote request, and peak RSS includes the test process. It is not a sustained bot-execution or production capacity claim. This public repository publishes the synthetic summary only; it does not include the private application or its test harness.
+
+## Portfolio sample scope
+
+The scheduler here is a runnable standard-library example of per-owner FIFO order with round-robin turns. The full application, server, platform clients, operational configuration and provider integrations remain in the private implementation. Future public examples will use synthetic inputs and reproducible measurements only.
 
 **Attribution.** The original Bot HQ project is by Nick Vasilescu. This Rust port and its offline demonstration are independent work.
